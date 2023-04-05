@@ -1,0 +1,84 @@
+.loginModal{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  z-index: 10;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginSection{
+  width: auto;
+  height: auto;
+  padding: 4rem 6rem;
+  margin: 1rem;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.loginSection h1{
+  margin: 1rem 0rem 2rem;
+}
+
+.input{
+  border-radius: 10px;
+  height: 40px;
+  width: 18rem;
+  margin: 1rem 2rem;
+  font-size: large;
+  padding-left: 6px;
+}
+
+.input:focus{
+  outline: none;
+}
+
+.input:placeholder-shown{
+  font-size: large;
+  padding-left: 6px;
+}
+
+.loginButton{
+  cursor: pointer;
+  border: none;
+  background-color: inherit;
+  font-size: larger;
+  font-weight: 600;
+  background-color: black;
+  color: white;
+  padding: 1rem 3rem;
+  margin-top: 2rem;
+  border-radius: 20px;
+}
+
+.bottomSection{
+  margin-top: 2rem;
+}
+
+.bottomSection span{
+  margin: 0.5rem;
+  letter-spacing: 1.1px;
+  font-size: medium;
+}
+
+.bottomSection button{
+  border: none;
+  background-color: inherit;
+  font-weight: 600;
+  font-size: large;
+  color: rgb(100, 95, 95);
+  cursor: pointer;
+}
+
+.bottomSection button:hover{
+  text-decoration: underline;
+  color: black;
+}

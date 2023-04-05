@@ -1,0 +1,11 @@
+html{
+  scroll-behavior: smooth;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background-image: linear-gradient(#D3D3D3, #ffffff);
+}
