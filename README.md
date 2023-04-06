@@ -1,38 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# About the Application
+The application is an advanced blog application which allow users to view a list of blog
+posts, read individual blog posts and comments on the post by other users.
 
-## Getting Started
+A user can also add blogs, comment on any post and also can edit or delete their previous posts anytime after logging into the account.
 
-First, run the development server:
+The admin of the application can add the post and also can edit or delete any post of the application.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+A user can search for any string in the search bar and the app will filter out the posts that includes searched string in its title or content.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Pagination is there for Blog Post List and each page containe atmost 5 posts and a user can go to previous or next page.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+A user who has not logged into the system cannot add the post or comment on any post and only the admin can delete or edit all the post.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+When signing-up into the account, The user has to provide firstName, email and password(last name is not required) and email id should be unique for every user trying to sign-up.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+In this application, MongoDb Database is used for storing all the users and blog posts.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+User Authentication is done with cookies-next and jsonwebtoken.
 
-## Learn More
+For styling ,Next.js built-in CSS modules are used.
 
-To learn more about Next.js, take a look at the following resources:
+Redux is used for State management in application and it will store the blog posts list and user info and we can retrieve the required info from it.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# To access the application as an admin one has to use the following login details:
+email: admin@gmail.com
+password: admin1234
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# How to run the application locally
+To run the application locally, one has to connect to the MongoDb Database and store the connection string in .env.local file also a secret key for jsonwebtoken is required and have to be stored in the same .env.local file. and run the npm install and then npm run dev.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
