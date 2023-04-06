@@ -46,7 +46,7 @@ const Post = ({postData}) => {
     if(userData){
       if(commentData != ""){
         const formData = {...postData, comments:[...comments, {author: userData.email, comment: commentData}]};
-        const response = await axios.put(`http://localhost:3000/api/posts/${_id}`, {...formData});
+        const response = await axios.put(`https://advanced-blog-app-imtc.vercel.app/api/posts/${_id}`, {...formData});
         console.log(response.data);
         setCommentData('');
         router.replace(`/post/${_id}`);
@@ -67,7 +67,7 @@ const Post = ({postData}) => {
   }
 
   const handleDeletePostButton = async() => {
-    const response = await axios.delete(`http://localhost:3000/api/posts/${_id}`);
+    const response = await axios.delete(`https://advanced-blog-app-imtc.vercel.app/api/posts/${_id}`);
     console.log(response.data);
     router.replace('/');
   }
@@ -126,7 +126,7 @@ const Post = ({postData}) => {
 }
 
 export const getServerSideProps = async ({ params }) => {
-  const res = await axios.get(`http://localhost:3000/api/posts/${params.id}`);
+  const res = await axios.get(`https://advanced-blog-app-imtc.vercel.app/api/posts/${params.id}`);
   return {
     props: { postData: res.data },
   };

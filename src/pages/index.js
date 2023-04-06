@@ -61,7 +61,7 @@ export default function Home({postList, user}) {
 
 export const getServerSideProps = async ({req, res}) => {
   await dbConnect();
-  const response = await axios.get("http://localhost:3000/api/posts");
+  const response = await axios.get("https://advanced-blog-app-imtc.vercel.app/api/posts");
   const user = await getUser(req, res);
   console.log(user);
   if (user) {

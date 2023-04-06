@@ -16,7 +16,7 @@ const index = () => {
   const handlePostButton = async(title, content) => {
     console.log(postData);
     const formData = { ...postData, title: title, content: content}
-    const response = await axios.put(`http://localhost:3000/api/posts/${postData._id}`, {...formData});
+    const response = await axios.put(`https://advanced-blog-app-imtc.vercel.app/api/posts/${postData._id}`, {...formData});
     console.log(response.data);
     debugger;
     router.replace(`/post/${postData._id}`);
