@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styles from '../styles/Header.module.css'
 import { useRouter } from 'next/router'
 import { useDispatch, useSelector } from 'react-redux'
-import { removeUser } from '../../redux/slices/userSlice'
+import { removeUserData } from '../../redux/slices/userSlice'
 import { removeCookies } from 'cookies-next'
 import { getSearchedPost } from '../../redux/slices/postSlice'
 
@@ -38,7 +38,7 @@ const HeaderComponent = () => {
   }
 
   const handleSignOut = (e) => {
-    dispatch(removeUser());
+    dispatch(removeUserData());
     removeCookies("token");
     router.push("/");
   }

@@ -26,7 +26,12 @@ export const setUserData = (user) => dispatch => {
   dispatch(addUser(user));
 }
 
-export const getUserData = () => async dispatch => {
+export const getUserData = () => dispatch => {
   const userData = localStorage.getItem("User");
   dispatch(addUser(JSON.parse(userData)));
+}
+
+export const removeUserData = () => dispatch => {
+  localStorage.removeItem("User");
+  dispatch(removeUser());
 }

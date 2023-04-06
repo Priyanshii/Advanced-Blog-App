@@ -5,7 +5,7 @@ import HeaderComponent from '@/components/HeaderComponent'
 import { useRouter } from 'next/router'
 import axios from 'axios'
 // import checkUser from '../../lib/checkUser's
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import dbConnect from '../../lib/dbConnect'
 import getUser from '../../lib/getUser'
 import { useDispatch, useSelector } from 'react-redux'
@@ -18,21 +18,43 @@ export default function Home({postList, user}) {
   const router = useRouter();
   const dispatch = useDispatch();
   const { postData, updatedPostData } = useSelector((store) => store.post);
-
+  const [page, setPage] = useState(0);
+  const divref = useRef();
   useEffect(() => {
+    setPage(0);
     console.log(postList,user);
     dispatch(setUserData(user));
     dispatch(addPostData(postList));
   },[])
+
+  const handlePrevPage = () => {
+    if(page !== 0){
+      setPage((page) => (page-1));
+      divref.current.scrollTo(0, 0);
+    }
+  }
+
+  const handleNextPage = () => {
+    if(page < (updatedPostData.length/5)-1){
+      setPage((page) => (page+1));
+      divref.current.scrollTo(0, 0);
+    }
+  }
+
   return (
-    <div className={styles.main}>
+    <div ref={divref} className={styles.main}>
       {
-        updatedPostData?.map((post) => {
+        [...updatedPostData]?.reverse().slice((page*5), (page*5)+5)?.map((post) => {
           return(
             <PostComponent key={post._id} postData={post}/>
           )
         })
       }
+      <div className={styles.pageButtonSection}>
+        <button onClick={handlePrevPage}>{"<<"}</button>
+        <span>{page+1}</span>
+        <button onClick={handleNextPage}>{">>"}</button>
+      </div>
     </div>
   )
 }

@@ -109,7 +109,7 @@ const Post = ({postData}) => {
         </h2>
         <div className={styles.commentList}>
         {
-          comments?.map((data, index) => {
+          [...comments]?.reverse().map((data, index) => {
             const { comment, author, _id } = data; 
             return(
               <div key={_id} className={styles.commentContainer}>
